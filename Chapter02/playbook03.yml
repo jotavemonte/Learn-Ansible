@@ -25,11 +25,8 @@
         name: "*"
         state: "latest"
     - yum:
-        name: "{{ item }}"
+        name: ["ntp", "ntpdate"]
         state: "installed"
-      with_items:
-        - "ntp"
-        - "ntpdate"
     - template:
         src: "./ntp.conf.j2"
         dest: "/etc/ntp.conf"
